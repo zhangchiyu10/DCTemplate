@@ -1,0 +1,25 @@
+<!DOCTYPE struts PUBLIC
+         "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+         "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<package name="blah" extends="struts-default" >
+
+		<interceptors>
+			<interceptor name="Auth" class="com.T.demo.AuthInterceptor" />
+			<interceptor-stack name="IntStack">
+				<interceptor-ref name="defaultStack" />
+				<interceptor-ref name="Auth" />
+			</interceptor-stack>
+		</interceptors>
+		<default-interceptor-ref name="IntStack" />
+		<global-results>
+			<result name="login">/WEB-INF/login.jsp</result>
+		</global-results>
+		<action name="Login" class="com.T.demo.Login" method="login">
+			<!--  result name="success">/system.jsp</result-->
+			<result name="success" type="redirectAction">System.action</result>
+		</action>
+		 <action name="System" class="com.T.demo.Login" method="system"> <result 
+			name="success">/WEB-INF/system.jsp</result> </action> 
+	</package>
+</struts>
