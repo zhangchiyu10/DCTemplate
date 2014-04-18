@@ -11,19 +11,23 @@
 <link href="./css/bootstrap-responsive.css" rel="stylesheet">
 <link href="./css/login.css" rel="stylesheet">
 <link rel="shortcut icon" href="./img/favicon.png">
-
+<script type="text/javascript" src="./js/jquery.min.js"></script>
 </head>
 
 <body>
 
 	<div class="container">
 
-		<form class="form-signin" action="Login.action" method="post">
-			<h2 class="form-signin-heading">登录入口</h2>
-			<input type="text"  class="input-block-level"  placeholder="用户名" name="user.username"> 
-			<input type="password" class="input-block-level"  placeholder="密码"name="user.password"> 
-			<button class="btn btn-large btn-primary" type="submit">登录</button>
+		<form class="form-signin" action="Login" method="post">
+			<h2 class="form-signin-heading">DCTemplate</h2>
+			<input type="text" class="input-block-level" placeholder="用户名"
+				name="user.username"> <input type="password"
+				class="input-block-level" placeholder="密码" name="user.password">
+			<button class="btn btn-large btn-primary" type="submit"
+				data-loading-text="登录中...">登录</button>
 		</form>
+
+
 
 	</div>
 	<!-- /container -->

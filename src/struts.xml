@@ -2,10 +2,10 @@
          "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
          "http://struts.apache.org/dtds/struts-2.0.dtd">
 <struts>
-	<package name="blah" extends="struts-default" >
+	<package name="blah" extends="struts-default,json-default">
 
 		<interceptors>
-			<interceptor name="Auth" class="com.T.demo.AuthInterceptor" />
+			<interceptor name="Auth" class="com.T.checkLogin.AuthInterceptor" />
 			<interceptor-stack name="IntStack">
 				<interceptor-ref name="defaultStack" />
 				<interceptor-ref name="Auth" />
@@ -15,11 +15,37 @@
 		<global-results>
 			<result name="login">/WEB-INF/login.jsp</result>
 		</global-results>
-		<action name="Login" class="com.T.demo.Login" method="login">
-			<!--  result name="success">/system.jsp</result-->
-			<result name="success" type="redirectAction">System.action</result>
+
+
+		<action name="Login" class="com.T.checkLogin.Login" method="login">
+			<result name="success" type="redirectAction">eachday</result>
 		</action>
-		 <action name="System" class="com.T.demo.Login" method="system"> <result 
-			name="success">/WEB-INF/system.jsp</result> </action> 
+
+
+
+		<action name="eachday" class="com.T.checkLogin.Login" method="system">
+			<result name="success">/WEB-INF/eachday.jsp</result>
+		</action>
+		<action name="trend" class="com.T.checkLogin.Login" method="system">
+			<result name="success">/WEB-INF/trend.jsp</result>
+		</action>
+		<action name="datamanage" class="com.T.checkLogin.Login"
+			method="system">
+			<result name="success">/WEB-INF/datamanage.jsp</result>
+		</action>
+		<action name="manage" class="com.T.dataManage.dataManage">
+			<result type="json">
+				<param name="root">result</param>
+			</result>
+		</action>
+
+		<action name="Chart1" class="com.T.chartsData.chart1">
+			<result type="json">
+				<param name="root">result</param>
+			</result>
+		</action>
+
 	</package>
+
+
 </struts>
